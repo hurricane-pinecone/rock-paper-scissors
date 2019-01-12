@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <input type="text" id="input" placeholder="Your pick"/>
+  <button onclick="play()">Rock, paper, scissors!</button>
+
+  <script>
+    function play() {
+      const playerSelection = document.getElementById('input').value;
+      const computerSelction = computerPlay();
+      console.log(playRound(playerSelection, computerSelction));
+
+      // Return rock paper of scissors randomly
+      function computerPlay() {
+        var rand = Math.floor((Math.random() * 2) + 1);
+        var arr = ['Rock', 'Paper', 'Scissors'];
+        console.log('Computer rolled: '+arr[rand]);
+        return arr[rand];
+      }
+
+      function playRound(playerSelection, computerSelection) {
+        if (playerSelection == 'Rock' && computerSelction == 'Scissors') {
+          return 'You win';
+        } else if(playerSelection == 'Rock' && computerSelction == 'Paper') {
+          return 'You lose';
+        } else if(playerSelection == 'Scissors' && computerSelction == 'Rock') {
+          return 'You lose';
+        } else if (playerSelection == 'Scissors' && computerSelction == 'Paper') {
+          return 'You win';
+        } else if(playerSelection == 'Paper' && computerSelction == 'Scissors') {
+          return 'You lose';
+        } else if (playerSelection == 'Paper' && computerSelction == 'Rock') {
+          return 'You win';
+        }
+
+        return 'It was a tie';
+      }
+    }
+
+  </script>
+</body>
+</html>
